@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Contact | Garden of Mercy Foundation</title>
+
+  <meta
+    name="description"
+    content="Contact Garden of Mercy Foundation."
+  >
+  <!-- Theme -->
+    <meta name="theme-color" content="#198754">
+  <link rel="shortcut icon" href="./images/garden_of_mercy_logo.png" type="image/x-icon" />
+
+  <link
+    href="./css/bootstrap.min.css"
+    rel="stylesheet"
+    >
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+<div id="site-header"></div>
+
+
+<main>
+
+<section class="page-header">
+
+  <div class="container background shadow-lg py-5">
+
+    <span class="section-label">CONTACT US</span>
+
+    <h1 class="display-5 fw-bold mt-2">
+      We'd love to hear from you.
+    </h1>
+
+    <p class="lead text-secondary">
+      Send us a message and our team can respond through the
+      foundation's official communication channels.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section class="p-3">
+
+  <div class="container rounded-4 background shadow-lg">
+
+    <div class="row g-5">
+
+      <div class="col-lg-5">
+
+        <h2 class="fw-bold">
+          Get in touch
+        </h2>
+
+        <p class="text-secondary">
+          For partnerships, volunteering, donations or general
+          enquiries, use the contact form.
+        </p>
+
+        <div class="contact-item">
+          <i class="bi bi-envelope"></i>
+          <div>
+            <strong>Email</strong>
+            <p class="text-secondary mb-0">
+              Official email address to be configured.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="bi bi-telephone"></i>
+          <div>
+            <strong>Phone</strong>
+            <p class="text-secondary mb-0">
+              Official phone number to be configured.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-7">
+
+        <form
+          action="/contact"
+          method="post"
+          class="contact-form"
+          novalidate
+        >
+
+          <div class="mb-3">
+
+            <label for="name" class="form-label">
+              Full name
+            </label>
+
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              required
+              maxlength="100"
+              autocomplete="name"
+            >
+
+          </div>
+
+
+          <div class="mb-3">
+
+            <label for="email" class="form-label">
+              Email address
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              required
+              maxlength="150"
+              autocomplete="email"
+            >
+
+          </div>
+
+
+          <div class="mb-3">
+
+            <label for="subject" class="form-label">
+              Subject
+            </label>
+
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="form-control"
+              required
+              maxlength="150"
+            >
+
+          </div>
+
+
+          <div class="mb-4">
+
+            <label for="message" class="form-label">
+              Message
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              class="form-control"
+              rows="6"
+              required
+              maxlength="3000"
+            ></textarea>
+
+          </div>
+
+
+          <button type="submit" class="btn btn-success btn-lg px-5">
+            <i class="bi bi-send me-2"></i>
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- =========================
+     FOOTER
+========================= -->
+<div id="site-footer"></div>
+
+<script
+        src="./js/bootstrap.bundle.min.js"
+        ></script>
+
+    <script type="module"
+        src="./js/app.js"
+        ></script>
+
+</body>
+</html>

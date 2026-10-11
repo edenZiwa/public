@@ -1,0 +1,957 @@
+:root {
+  color-scheme: light;
+
+  --gomf-green: #198754;
+  --gomf-green-rgb: 25, 135, 84;
+
+  --gomf-dark: #10251b;
+  --gomf-gold: #ffc107;
+  --gomf-gold-rgb: 255, 193, 7;
+
+  --gomf-muted: #6c757d;
+
+  --gomf-light: #f7f9f8;
+  --gomf-surface: #ffffff;
+  --gomf-surface-2: #f8f9fa;
+
+  --gomf-border: #dee2e6;
+
+  --gomf-focus: rgba(25, 135, 84, 0.25);
+
+  --gomf-radius-sm: 0.5rem;
+  --gomf-radius: 0.75rem;
+  --gomf-radius-lg: 1rem;
+
+  --gomf-shadow-sm: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.06);
+  --gomf-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.08);
+
+  --gomf-transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* 
+   BOOTSTRAP 5.3 COLOR-MODE VARIABLES
+    */
+
+/*
+ * These variables allow Bootstrap components to inherit the
+ * Foundation theme without replacing Bootstrap's component CSS.
+ */
+
+:root,
+[data-bs-theme="light"] {
+  color-scheme: light;
+
+  --bs-body-bg: var(--gomf-surface);
+  --bs-body-color: #17221c;
+
+  --bs-emphasis-color: #10251b;
+  --bs-secondary-color: rgba(23, 34, 28, 0.75);
+  --bs-tertiary-color: rgba(23, 34, 28, 0.5);
+
+  --bs-secondary-bg: var(--gomf-surface-2);
+  --bs-tertiary-bg: var(--gomf-light);
+
+  --bs-border-color: var(--gomf-border);
+  --bs-border-color-translucent: rgba(0, 0, 0, 0.12);
+  --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.085);
+
+  --bs-link-color: var(--gomf-green);
+  --bs-link-hover-color: #146c43;
+
+  --bs-primary: var(--gomf-green);
+  --bs-primary-rgb: var(--gomf-green-rgb);
+
+  --bs-success: var(--gomf-green);
+  --bs-success-rgb: var(--gomf-green-rgb);
+
+  --bs-warning: var(--gomf-gold);
+  --bs-warning-rgb: var(--gomf-gold-rgb);
+}
+
+
+/* 
+   DARK MODE
+    */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --gomf-surface: #0d0d0c;
+    --gomf-surface-2: #171716;
+    --gomf-light: #1e1e1c;
+
+    --gomf-border: #343a40;
+
+    --gomf-focus: rgba(117, 183, 152, 0.3);
+
+    --gomf-shadow-sm: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.28);
+    --gomf-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.4);
+
+    --bs-body-bg: #0d0d0c;
+    --bs-body-color: #f1f3f5;
+
+    --bs-emphasis-color: #ffffff;
+    --bs-secondary-color: rgba(241, 243, 245, 0.75);
+    --bs-tertiary-color: rgba(241, 243, 245, 0.5);
+
+    --bs-secondary-bg: #171716;
+    --bs-tertiary-bg: #1e1e1c;
+
+    --bs-border-color: #343a40;
+    --bs-border-color-translucent: rgba(255, 255, 255, 0.12);
+
+    --bs-link-color: #75b798;
+    --bs-link-hover-color: #95d5b2;
+
+    --bs-primary: #75b798;
+    --bs-primary-rgb: 117, 183, 152;
+
+    --bs-success: #75b798;
+    --bs-success-rgb: 117, 183, 152;
+
+    --bs-warning: #ffda6a;
+    --bs-warning-rgb: 255, 218, 106;
+  }
+}
+
+
+/*
+ * If JavaScript explicitly sets data-bs-theme="dark", this
+ * block takes precedence over the normal light variables.
+ */
+
+[data-bs-theme="dark"] {
+  color-scheme: dark;
+
+  --gomf-surface: #0d0d0c;
+  --gomf-surface-2: #171716;
+  --gomf-light: #1e1e1c;
+
+  --gomf-border: #343a40;
+  --gomf-focus: rgba(117, 183, 152, 0.3);
+
+  --bs-body-bg: #0d0d0c;
+  --bs-body-color: #f1f3f5;
+
+  --bs-emphasis-color: #ffffff;
+  --bs-secondary-color: rgba(241, 243, 245, 0.75);
+  --bs-tertiary-color: rgba(241, 243, 245, 0.5);
+
+  --bs-secondary-bg: #171716;
+  --bs-tertiary-bg: #1e1e1c;
+
+  --bs-border-color: #343a40;
+  --bs-border-color-translucent: rgba(255, 255, 255, 0.12);
+  --bs-box-shadow-lg: 0 1rem 3rem rgba(255, 255, 255, 0.045);
+
+  --bs-link-color: #75b798;
+  --bs-link-hover-color: #95d5b2;
+
+  --bs-primary: #75b798;
+  --bs-primary-rgb: 117, 183, 152;
+
+  --bs-success: #75b798;
+  --bs-success-rgb: 117, 183, 152;
+
+  --bs-warning: #ffda6a;
+  --bs-warning-rgb: 255, 218, 106;
+}
+
+
+/* 
+   GLOBAL
+    */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+
+  line-height: 1.7;
+  overflow-x: hidden;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.background {
+    background-color: var(--bs-body-bg)!important;
+    color: var(--bs-body-color);
+}
+
+/* 
+   NAVIGATION
+    */
+
+.navbar {
+  z-index: 1030;
+}
+
+.brand-mark {
+  letter-spacing: -0.02em;
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  color: var(--bs-body-color);
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--bs-link-color);
+}
+
+.navbar .navbar-brand {
+  color: var(--bs-emphasis-color);
+}
+
+.logoo {
+    width: 125px;
+}
+
+.logo {
+    width: 45px;
+}
+
+.other-section {
+  position: relative;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 30, 20, 0.92) 0%,
+      rgba(10, 30, 20, 0.78) 45%,
+      rgba(10, 30, 20, 0.35) 100%
+    );
+}
+
+.min-vh-75 {
+  min-height: 75vh;
+}
+
+
+/* 
+   TYPOGRAPHY
+    */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.025em;
+}
+
+.text-secondary {
+  color: var(--bs-secondary-color) !important;
+}
+
+
+/* 
+   PROGRAM CARDS
+    */
+
+.program-icon {
+  width: 62px;
+  height: 62px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+  font-size: 1.6rem;
+}
+
+.card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--gomf-shadow) !important;
+}
+
+
+/* 
+   IMPACT
+    */
+
+.impact-card {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.impact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--gomf-shadow);
+}
+
+
+/* 
+   FOUNDER
+    */
+
+.founder-placeholder {
+  min-height: 420px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(25, 135, 84, 0.5),
+      rgba(16, 37, 27, 0.95)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* 
+   DONATION
+    */
+
+.donation-card {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+.donation-card .bg-success {
+  background:
+    linear-gradient(
+      135deg,
+      var(--gomf-green),
+      #12653e
+    ) !important;
+}
+
+
+/* 
+   CONTACT
+    */
+
+.contact-icon {
+  width: 46px;
+  height: 46px;
+
+  flex: 0 0 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background-color: var(--bs-success-bg-subtle);
+  color: var(--bs-success-text-emphasis);
+
+  font-size: 1.25rem;
+}
+
+.form-control,
+.form-select {
+  border-radius: 12px;
+  border-color: var(--bs-border-color);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--bs-success);
+  box-shadow: 0 0 0 0.2rem var(--gomf-focus);
+}
+
+#site-header, #site-footer {
+    background-color: var(--bs-body-bg);
+}
+
+/* 
+   SECONDARY NAVIGATION
+    */
+
+#section-nav {
+  position: sticky;
+  top: 0;
+
+  min-height: 52px;
+  padding: 6px 12px;
+
+  z-index: 1030;
+
+  white-space: nowrap;
+  overflow-x: auto;
+  background-color: var(--bs-body-bg);
+  scrollbar-width: none;
+}
+
+#section-nav a {
+    color: var(--bs-body-color)!important;
+}
+
+#section-nav::-webkit-scrollbar {
+  display: none;
+}
+
+#section-nav .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+
+  padding: 8px 12px;
+  border-radius: 6px;
+
+  flex-shrink: 0;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#section-nav .nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+#section-nav .nav-link.active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* 
+   FOOTER
+    */
+
+footer a:hover {
+  color: #ffc107 !important;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a,
+.footer-bottom-link {
+  color: var(--bs-body-color);
+
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-bottom-link:hover {
+  color: #ffffff;
+}
+
+
+.social-link {
+  width: 42px;
+  height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.social-link:hover {
+  background-color: var(--gomf-green);
+  transform: translateY(-2px);
+}
+
+
+/* 
+   BUTTONS
+    */
+
+.btn {
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.btn-success {
+  --bs-btn-bg: var(--gomf-green);
+  --bs-btn-border-color: var(--gomf-green);
+
+  --bs-btn-hover-bg: #157347;
+  --bs-btn-hover-border-color: #146c43;
+}
+
+
+/* 
+   SECTION SPACING
+    */
+
+.py-lg-6 {
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
+}
+
+
+/* 
+   ACCESSIBILITY
+    */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(255, 193, 7, 0.7);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* 
+   RESPONSIVE
+    */
+
+@media (max-width: 991.98px) {
+  .hero-section {
+    min-height: 700px;
+
+    background:
+      linear-gradient(
+        rgba(10, 30, 20, 0.82),
+        rgba(10, 30, 20, 0.9)
+      ),
+      url("/images/hero.jpg") center / cover no-repeat;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .display-3 {
+    font-size: 2.5rem;
+  }
+
+  .display-5 {
+    font-size: 2rem;
+  }
+
+  .hero-section .container {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .feature-card,
+  .program-card,
+  .impact-card {
+    padding: 1.5rem;
+  }
+
+  .legal-content {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  #section-nav {
+    min-height: 48px;
+    padding: 5px 8px;
+    gap: 2px !important;
+  }
+
+  #section-nav .nav-link {
+    font-size: 14px;
+    padding: 7px 10px;
+  }
+
+  .hero-section {
+    min-height: 720px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero-section .lead {
+    font-size: 1.05rem;
+  }
+
+  .founder-placeholder {
+    min-height: 300px;
+  }
+}
+
+
+/* 
+   HOMEPAGE GALLERY
+ */
+
+.home-gallery-card {
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 1.25rem;
+
+  background: var(--bs-secondary-bg);
+
+  min-height: 220px;
+
+}
+
+
+.home-gallery-feature {
+
+  min-height: 460px;
+
+}
+
+
+.home-gallery-card img {
+
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 220px;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform .5s ease;
+
+}
+
+
+.home-gallery-feature img {
+
+  min-height: 460px;
+
+}
+
+
+.home-gallery-card:hover img {
+
+  transform: scale(1.06);
+
+}
+
+
+.home-gallery-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  padding: 1.25rem;
+
+  background:
+    linear-gradient(
+      transparent 35%,
+      rgba(0, 0, 0, .75)
+    );
+
+}
+
+
+.home-gallery-card:hover
+.home-gallery-overlay {
+
+  background:
+    linear-gradient(
+      transparent 25%,
+      rgba(0, 0, 0, .8)
+    );
+
+}
+
+
+@media (max-width: 575.98px) {
+
+  .home-gallery-feature,
+  .home-gallery-feature img {
+
+    min-height: 350px;
+
+  }
+
+  .home-gallery-card,
+  .home-gallery-card img {
+
+    min-height: 160px;
+
+  }
+
+}
+
+
+
+
+/* =========================================
+   HERO SECTION — GARDEN OF MERCY FOUNDATION
+========================================= */
+
+.hero-section {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 760px;
+  min-height: min(760px, 100svh);
+
+  padding: clamp(5rem, 10vh, 8rem) 0;
+
+  overflow: hidden;
+
+  background-color: #0d0d0c;
+  background-image: url("../images/main.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* =========================================
+   HERO OVERLAY — DEPTH AND WARMTH
+========================================= */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(13, 13, 12, 0.94) 0%,
+      rgba(13, 13, 12, 0.78) 40%,
+      rgba(13, 13, 12, 0.30) 75%,
+      rgba(13, 13, 12, 0.15) 100%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(255, 193, 7, 0.20),
+      transparent 55%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(13, 13, 12, 0.65) 0%,
+      transparent 35%
+    );
+
+  pointer-events: none;
+}
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section h1 {
+  max-width: 850px;
+
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+
+  color: #fff;
+
+  text-wrap: balance;
+}
+
+.hero-section p {
+  max-width: 650px;
+
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Golden accent text */
+
+.hero-section .text-gold {
+  color: #ffc107;
+}
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
+.hero-section .btn {
+  min-height: 48px;
+  padding: 0.8rem 1.5rem;
+
+  border-radius: 50rem;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.hero-section .btn:hover {
+  transform: translateY(-3px);
+}
+
+.hero-section .btn-warning {
+  color: #17140a;
+  background-color: #ffc107;
+  border-color: #ffc107;
+
+  box-shadow: 0 8px 24px rgba(255, 193, 7, 0.18);
+}
+
+.hero-section .btn-warning:hover {
+  background-color: #ffcd38;
+  border-color: #ffcd38;
+
+  box-shadow: 0 12px 30px rgba(255, 193, 7, 0.28);
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 991.98px) {
+  .hero-section {
+    min-height: 680px;
+
+    background-position: 60% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(13, 13, 12, 0.90),
+        rgba(13, 13, 12, 0.52)
+      ),
+      radial-gradient(
+        circle at 80% 30%,
+        rgba(255, 193, 7, 0.16),
+        transparent 60%
+      );
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 575.98px) {
+  .hero-section {
+    min-height: 620px;
+    min-height: max(620px, 85svh);
+
+    padding: 5rem 0 4rem;
+
+    background-position: 65% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(13, 13, 12, 0.60) 0%,
+        rgba(13, 13, 12, 0.78) 45%,
+        rgba(13, 13, 12, 0.96) 100%
+      ),
+      radial-gradient(
+        circle at 75% 25%,
+        rgba(255, 193, 7, 0.15),
+        transparent 55%
+      );
+  }
+
+  .hero-section h1 {
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .hero-section .btn {
+    width: 100%;
+    min-height: 50px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section .btn {
+    transition: none;
+  }
+
+  .hero-section .btn:hover {
+    transform: none;
+  }
+}

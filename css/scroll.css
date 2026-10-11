@@ -1,0 +1,78 @@
+/* Scroll button */
+.updown {
+    bottom: 50!important;
+    right: 50!important;
+    border-radius: 5px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #dc3545;
+    border-radius: 50%;
+
+    z-index: 9999;
+/*
+    opacity: 0;
+    visibility: hidden;
+    */
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+/* Visible button */
+.updown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Link */
+.updown a {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    text-decoration: none;
+}
+
+/* Icon */
+.updown i {
+    font-size: 20px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+/* Hover */
+.updown:hover {
+    background: #bb2d3b;
+}
+
+.updown:hover i {
+    transform: translateY(-2px);
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .updown {
+        right: 15px;
+        bottom: 15px;
+
+        width: 42px;
+        height: 42px;
+    }
+}
