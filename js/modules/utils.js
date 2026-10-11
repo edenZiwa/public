@@ -10,8 +10,8 @@
  */
 
 const COMPONENTS = Object.freeze({
-  header: "../../components/header.html",
-  footer: "../../components/footer.html"
+  header: "/components/header.html",
+  footer: "/components/footer.html"
 });
 
 
