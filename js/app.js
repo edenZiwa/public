@@ -30,18 +30,7 @@ function detectTheme() {
 document.addEventListener(
     "DOMContentLoaded",
     async () => {
-        await Promise.all([
-
-            loadComponent(
-                "#site-header",
-                "header"
-            ),
-
-            loadComponent(
-                "#site-footer",
-                "footer"
-            )
-        ]);
+        
         detectTheme();
 
         setScroll();
