@@ -1,0 +1,157 @@
+/* Garden of Mercy Foundation — Donation page */
+
+.donate-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+    radial-gradient(
+    circle at 90% 15%,
+    rgba(25, 135, 84, 0.14),
+    transparent 38%
+    ),
+    var(--bs-body-bg, #fff);
+}
+
+.donate-hero .section-label {
+    color: #198754;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+}
+
+.donate-hero h1 {
+    max-width: 800px;
+    line-height: 1.12;
+}
+
+.donate-intro {
+    max-width: 680px;
+    color: var(--bs-secondary-color, #6c757d);
+}
+
+.donation-section {
+    background: var(--bs-tertiary-bg, #f8f9fa);
+}
+
+.donation-card,
+.donation-aside {
+    color: var(--bs-body-color, #212529);
+    background: var(--bs-body-bg, #fff);
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 1.25rem;
+    box-shadow: 0 0.75rem 2.5rem rgba(0, 0, 0, 0.055);
+}
+
+.icon-circle {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    color: #198754;
+    background: rgba(25, 135, 84, 0.12);
+    font-size: 1.5rem;
+}
+
+.amount-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.amount-option {
+    min-height: 52px;
+    padding: 0.7rem;
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: 0.75rem;
+    color: var(--bs-body-color, #212529);
+    background: var(--bs-body-bg, #fff);
+    font-weight: 700;
+    transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.amount-option:hover {
+    border-color: #198754;
+}
+
+.amount-option[aria-pressed="true"] {
+    color: #fff;
+    background: #198754;
+    border-color: #198754;
+}
+
+.amount-option:focus-visible,
+.donate-hero a:focus-visible,
+.donation-card button:focus-visible,
+.donation-aside a:focus-visible {
+    outline: 3px solid #0d6efd;
+    outline-offset: 3px;
+}
+
+.donation-summary {
+    background: var(--bs-tertiary-bg, #f8f9fa);
+    border: 1px solid var(--bs-border-color, #dee2e6);
+}
+
+.summary-amount {
+    font-size: clamp(1.6rem, 5vw, 2.25rem);
+    overflow-wrap: anywhere;
+}
+
+.donation-aside {
+    position: sticky;
+    top: 1.5rem;
+}
+
+.donation-aside hr {
+    border-color: var(--bs-border-color, #dee2e6);
+    margin: 1.5rem 0;
+}
+
+.skip-link {
+    position: absolute;
+    z-index: 2000;
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    background: #198754;
+    border-radius: 0.5rem;
+    transform: translateY(-150%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+@media (min-width: 576px) {
+    .amount-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 991.98px) {
+    .donation-aside {
+        position: static;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .donation-card,
+    .donation-aside {
+        border-radius: 1rem;
+    }
+
+    .donate-hero {
+        padding-top: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .amount-option {
+        transition: none;
+    }
+      }
