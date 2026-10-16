@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176b45">
+  <title>My Account | Garden of Mercy Foundation</title>
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="./css/account.css" type="text/css" media="all" />
+</head>
+<body>
+<!-- Header Section -->
+    <div id="site-header"></div>
+    
+<main class="container wrap py-4 py-md-5">
+  <div class="mb-4"><div class="eyebrow mb-2">Community member portal</div><h1 class="page-title h2 mb-2">Your account, your impact</h1><p class="text-secondary mb-0">Manage your volunteer profile, register for programs, and follow your activity with the foundation.</p></div>
+  <div id="globalAlert" class="alert d-none" role="status" aria-live="polite"></div>
+  <div id="loading" class="panel p-5 text-center"><div class="spinner-border text-success mb-3" aria-hidden="true"></div><p class="fw-semibold mb-1">Loading your account</p><p class="small-muted mb-0">Securely retrieving your information…</p></div>
+  <div id="dashboard" class="d-none">
+    <div class="row g-4 mb-4">
+      <div class="col-12 col-lg-7"><section class="panel h-100"><div class="banner"></div><div class="profile-body"><div class="profile-head mb-4"><div id="avatar" class="avatar" aria-hidden="true">M</div><div class="pb-1 flex-grow-1"><span class="pill mb-2"><span class="pill-dot"></span> Public account</span><h2 id="fullName" class="h4 fw-bold mb-1">Community member</h2><p id="email" class="small-muted mb-0"></p></div></div>
+        <div class="row g-3"><div class="col-6"><div class="detail"><span class="detail-label">Account type</span><div class="detail-value">Community user</div></div></div><div class="col-6"><div class="detail"><span class="detail-label">Volunteer status</span><div id="volunteerStatus" class="detail-value">Not yet submitted</div></div></div></div>
+        <form id="logoutForm" method="post" action="/auth/logout" class="mt-4 pt-3 border-top"><input type="hidden" name="_csrf" id="csrfToken"><button id="logoutButton" class="btn btn-outline-mercy" type="submit">↪ Sign out securely</button><p class="small-muted mt-2 mb-0">Remember to sign out on shared devices.</p></form>
+      </div></section></div>
+      <div class="col-12 col-lg-5"><section class="panel p-4 h-100"><h2 class="panel-title mb-1">Stay connected</h2><p class="small-muted mb-3">Explore opportunities to make a difference.</p><div class="d-grid gap-3">
+        <a href="/programs" class="feature d-flex gap-3 align-items-center text-decoration-none"><span class="feature-icon">✳</span><span><strong class="d-block">Community programs</strong><span class="small-muted">Discover current initiatives.</span></span></a>
+        <a href="/donate" class="feature d-flex gap-3 align-items-center text-decoration-none"><span class="feature-icon">♡</span><span><strong class="d-block">Support our mission</strong><span class="small-muted">Help fund meaningful work.</span></span></a>
+        <a href="/contact" class="feature d-flex gap-3 align-items-center text-decoration-none"><span class="feature-icon">✉</span><span><strong class="d-block">Contact the foundation</strong><span class="small-muted">Ask a question or get support.</span></span></a>
+      </div></section></div>
+    </div>
+    <section class="panel p-3 p-md-4 mb-4"><ul class="nav nav-pills flex-wrap gap-2" id="accountTabs" role="tablist">
+      <li class="nav-item"><button class="nav-link active" data-tab="volunteer" type="button">Volunteer profile</button></li><li class="nav-item"><button class="nav-link" data-tab="programs" type="button">Program registrations</button></li><li class="nav-item"><button class="nav-link" data-tab="applications" type="button">Applications</button></li><li class="nav-item"><button class="nav-link" data-tab="donations" type="button">Donation history</button></li>
+    </ul></section>
+    
+    <section id="tab-volunteer" class="tab-panel panel p-4 p-md-5 mb-4"><div class="d-flex flex-wrap justify-content-between gap-2 mb-3"><div><h2 class="panel-title mb-1">Volunteer profile</h2><p class="small-muted mb-0">Tell us how you would like to contribute. Staff verification is handled by the foundation.</p></div><span id="verificationBadge" class="status pending">Not submitted</span></div>
+      <form id="volunteerForm"><div class="row g-3"><div class="col-12 col-md-6"><label class="form-label" for="phone">Phone number</label><input class="form-control" id="phone" name="phone" maxlength="40" autocomplete="tel"></div><div class="col-12 col-md-6"><label class="form-label" for="location">Town / district</label><input class="form-control" id="location" name="location" maxlength="160" autocomplete="address-level2"></div><div class="col-12"><label class="form-label" for="availability">Availability</label><select id="availability" name="availability" class="form-select"><option value="">Choose availability</option><option>Weekdays</option><option>Weekends</option><option>Evenings</option><option>Flexible</option><option>Occasional</option></select></div>
+      <div class="col-12"><label class="form-label d-block">Skills and experience</label><div class="row g-2" id="skillsList"></div></div><div class="col-12"><label class="form-label" for="interests">Areas of interest <span class="fw-normal text-secondary">(comma separated)</span></label><input class="form-control" id="interests" maxlength="800" placeholder="Education, community outreach, child wellbeing"></div><div class="col-12"><label class="form-label" for="motivation">Why would you like to volunteer?</label><textarea class="form-control" id="motivation" rows="4" maxlength="2000" placeholder="Tell us about your interests and how you hope to contribute."></textarea></div><div class="col-12 d-flex flex-wrap align-items-center gap-3"><button class="btn btn-mercy" type="submit">Save volunteer profile</button><span id="profileMessage" class="small-muted" role="status"></span></div></div></form><div id="reviewNote" class="alert alert-info mt-3 d-none"></div>
+    </section>
+    
+    <section id="tab-programs" class="tab-panel panel p-4 p-md-5 mb-4 d-none"><h2 class="panel-title mb-1">Program registrations</h2><p class="small-muted mb-3">Browse open programs and track your registration requests.</p><div id="programList"></div><hr class="my-4"><h3 class="h6 fw-bold">Your registrations</h3><div id="registrationList"></div></section>
+    
+    <section id="tab-applications" class="tab-panel panel p-4 p-md-5 mb-4 d-none"><h2 class="panel-title mb-1">Applications and requests</h2><p class="small-muted mb-3">Submit a request and check its review status here.</p><form id="applicationForm" class="border rounded-3 p-3 p-md-4 mb-4"><div class="row g-3"><div class="col-12 col-md-5"><label class="form-label" for="applicationType">Application type</label><select class="form-select" id="applicationType" required><option value="volunteer">Volunteer opportunity</option><option value="program">Program participation</option><option value="general_support">General support / inquiry</option></select></div><div class="col-12 col-md-7"><label class="form-label" for="applicationTitle">Title</label><input class="form-control" id="applicationTitle" maxlength="180" required minlength="3" placeholder="What are you applying for?"></div><div class="col-12"><label class="form-label" for="applicationMessage">Details</label><textarea class="form-control" id="applicationMessage" rows="4" minlength="10" maxlength="5000" required placeholder="Share the relevant details…"></textarea></div><div class="col-12"><button class="btn btn-mercy" type="submit">Submit application</button></div></div></form><div id="applicationList"></div></section>
+    <section id="tab-donations" class="tab-panel panel p-4 p-md-5 mb-4 d-none"><h2 class="panel-title mb-1">Donation history</h2><p class="small-muted mb-3">Donation records associated with your signed-in account email. Only confirmed payments should be considered completed.</p><div id="donationList"></div></section>
+  </div>
+</main>
+
+<!-- Footer Section -->
+<div id="site-footer"></div>
+
+<!-- Scripts -->
+<script
+src="./js/bootstrap.bundle.min.js"
+></script>
+<script type="module"
+src="./js/app.js"
+></script>
+<script src="./js/account.js" type="text/javascript" charset="utf-8"></script>
+
+</body></html>
+    
