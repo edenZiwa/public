@@ -250,6 +250,7 @@ img {
       rgba(10, 30, 20, 0.78) 45%,
       rgba(10, 30, 20, 0.35) 100%
     );
+    color: white;
 }
 
 .min-vh-75 {
@@ -736,6 +737,10 @@ select:focus-visible {
 
 }
 
+#publicAuthControls {
+    margin-left: auto
+}
+
 
 
 
@@ -743,7 +748,7 @@ select:focus-visible {
    HERO SECTION — GARDEN OF MERCY FOUNDATION
 ========================================= */
 
-.hero-section {
+.hero-section, .hero, .sponsor-hero {
   position: relative;
   isolation: isolate;
 
@@ -765,11 +770,21 @@ select:focus-visible {
   background-size: cover;
 }
 
+.hero {
+    min-height: 560px;
+  min-height: min(560px, 100svh);
+  padding: 0px!important;
+}
+
+.sponsor-hero {
+    min-height: 360px;
+  min-height: min(360px, 100svh);
+}
 /* =========================================
    HERO OVERLAY — DEPTH AND WARMTH
 ========================================= */
 
-.hero-overlay {
+.hero-overlay, .overlay {
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -827,6 +842,34 @@ select:focus-visible {
   color: rgba(255, 255, 255, 0.82);
 }
 
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    color: var(--gomf-green);
+    font-size: .74rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+.eyebrow-dot {
+    width: .45rem;
+    height: .45rem;
+    display: inline-block;
+    border-radius: 50%;
+    background: var(--gomf-green);
+}
+.eyebrow-light {
+    color: rgba(255,255,255,.78);
+}
+
+.section-label {
+    color: #198754;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+}
 /* Golden accent text */
 
 .hero-section .text-gold {
@@ -954,4 +997,4 @@ select:focus-visible {
   .hero-section .btn:hover {
     transform: none;
   }
-}
+  }
