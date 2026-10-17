@@ -10,168 +10,100 @@
  */
 
 const COMPONENTS = Object.freeze({
-  header: "components/header.html",
-  footer: "components/footer.html"
+  header: "./components/header.html",
+  footer: "./components/footer.html"
 });
 
 
-export async function loadComponent(
-  selector,
-  componentName
-) {
 
-  const container =
-    document.querySelector(selector);
+export async function loadComponent(selector, componentName) {
+  const container = document.querySelector(selector);
 
-  if (!container) {
-    return;
-  }
+  if (!container) return;
 
-
-  /*
-   * Only allow known components.
-   */
-  const url =
-    COMPONENTS[componentName];
+  const url = COMPONENTS[componentName];
 
   if (!url) {
-
-    console.error(
-      "Unknown component:",
-      componentName
-    );
-
+    console.error("Unknown component:", componentName);
     return;
   }
 
+  // Save fallback markup already present in the HTML.
+  const fallback = container.innerHTML;
 
-  const controller =
-    new AbortController();
-
-  const timeout =
-    setTimeout(
-      () => controller.abort(),
-      10000
-    );
-
+  let controller = null;
+  let timeoutId = null;
 
   try {
+    // AbortController is optional for compatibility.
+    if (typeof AbortController !== "undefined") {
+      controller = new AbortController();
 
-    const response =
-      await fetch(url, {
-        method: "GET",
-        credentials: "same-origin",
-        cache: "no-store",
-        redirect: "error",
-        headers: {
-          "Accept": "text/html"
-        },
-        signal: controller.signal
-      });
+      timeoutId = setTimeout(() => {
+        controller.abort();
+      }, 15000);
+    }
 
+    const options = {
+      method: "GET",
+      credentials: "same-origin",
+      headers: { Accept: "text/html" }
+    };
+
+    if (controller) {
+      options.signal = controller.signal;
+    }
+
+    // Use the browser's normal caching and redirect behavior.
+    const response = await fetch(url, options);
 
     if (!response.ok) {
-
-      throw new Error(
-        `HTTP ${response.status}`
-      );
-
+      throw new Error(`HTTP ${response.status}`);
     }
-
 
     const contentType =
-      response.headers.get(
-        "content-type"
-      ) || "";
+      response.headers.get("content-type") || "";
 
-
-    if (
-      !contentType
-        .toLowerCase()
-        .includes("text/html")
-    ) {
-
-      throw new Error(
-        "Invalid component content type."
-      );
-
+    if (!contentType.toLowerCase().includes("text/html")) {
+      throw new Error("Invalid component content type.");
     }
 
+    const html = await response.text();
 
-    const html =
-      await response.text();
-
-
-    /*
-     * Prevent unexpectedly large responses.
-     */
+    // Check size where TextEncoder is available.
     if (
-      new TextEncoder()
-        .encode(html)
-        .length >
-      250 * 1024
+      typeof TextEncoder !== "undefined" &&
+      new TextEncoder().encode(html).length > 250 * 1024
     ) {
-
-      throw new Error(
-        "Component is too large."
-      );
-
+      throw new Error("Component is too large.");
     }
 
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
 
-    /*
-     * Parse as inert HTML.
-     */
-    const parser =
-      new DOMParser();
-
-    const doc =
-      parser.parseFromString(
-        html,
-        "text/html"
-      );
-
-
-    /*
-     * Components must not contain scripts.
-     */
-    if (
-      doc.querySelector(
-        "script, iframe, object, embed"
-      )
-    ) {
-
-      throw new Error(
-        "Unsafe component content."
-      );
-
+    if (doc.querySelector("script, iframe, object, embed")) {
+      throw new Error("Unsafe component content.");
     }
 
-
-    /*
-     * Insert only the component body.
-     */
     container.replaceChildren(
-      ...Array.from(
-        doc.body.childNodes
-      )
+      ...Array.from(doc.body.childNodes)
     );
-
 
   } catch (error) {
+    console.error(`Failed to load ${componentName}:`, error);
 
-    console.error(
-      `Failed to load ${componentName}:`,
-      error
-    );
+    // Preserve existing fallback markup.
+    if (fallback && !container.hasChildNodes()) {
+      container.innerHTML = fallback;
+    }
 
   } finally {
-
-    clearTimeout(timeout);
-
+    if (timeoutId !== null) {
+      clearTimeout(timeoutId);
+    }
   }
-
 }
+
 
 
 /* =====================================================
@@ -404,4 +336,4 @@ export function initializeForms() {
 
     });
 
-}
+     }
