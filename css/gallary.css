@@ -28,7 +28,7 @@
     rgba(0,0,0,.75),
     rgba(0,0,0,.3)
     ),
-    url("../images/gallery/hero.jpg")
+    url("../images/main.png")
     center / cover no-repeat;
 
     transform:
@@ -1179,4 +1179,4 @@
 
     }
 
-}
+    }
