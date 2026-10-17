@@ -6,28 +6,48 @@
         <div class="container">
 
             <!---    <a
-                            class="navbar-brand brand-mark fw-bold d-flex align-items-center gap-2"
-                            href="/"
-                            aria-label="Garden of Mercy Foundation home"
-                            >
-                            <span
-                                class="d-inline-flex align-items-center justify-content-center rounded-circle bg-success"
-                                style="width:42px;height:42px;"
-                                >
-                               <!--- <i class="bi bi-flower1"></i>
-                               <img class="" src="./images/garden_of_mercy_horizontal_transparent.png" alt="garden_of_mercy_logo" />
-                         </span>
+                                        class="navbar-brand brand-mark fw-bold d-flex align-items-center gap-2"
+                                        href="/"
+                                        aria-label="Garden of Mercy Foundation home"
+                                        >
+                                        <span
+                                            class="d-inline-flex align-items-center justify-content-center rounded-circle bg-success"
+                                            style="width:42px;height:42px;"
+                                            >
+                                           <!--- <i class="bi bi-flower1"></i>
+                                           <img class="" src="./images/garden_of_mercy_horizontal_transparent.png" alt="garden_of_mercy_logo" />
+                                     </span>
 
-                          <!---  <span>
-                                Garden of Mercy
-                                <small class="d-block text-muted fw-normal">Foundation</small>
-                            </span>
-                        </a>
-                        --->
+                                      <!---  <span>
+                                            Garden of Mercy
+                                            <small class="d-block text-muted fw-normal">Foundation</small>
+                                        </span>
+                                    </a>
+                                    --->
 
-            <span class="logoo">
+            <a class="logoo" href="./index.html">
                 <img src="./images/garden_of_mercy_horizontal_transparent.png" alt="garden_of_mercy_logo" />
-        </span>
+        </a>
+
+
+        <div class="d-flex px-2" id="publicAuthControls">
+            <button
+                type="button"
+                id="googleSignInButton"
+                class="btn btn-outline-success btn-sm"
+                >
+                Sign in
+            </button>
+
+            <a
+                href="/account"
+                id="publicAccountLink"
+                class="btn btn-outline-success btn-sm d-none"
+                >
+                My Account
+            </a>
+        </div>
+
 
         <button
             class="navbar-toggler"
@@ -107,6 +127,18 @@
                         Founder
                     </a>
                 </li>
+                
+                <!-- Sponsor -->
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="./sponsor.html"
+                        data-nav="sponsor"
+                        >
+                        <i class="bi bi-envelope-fill me-1" aria-hidden="true"></i>
+                        Sponsor
+                    </a>
+                </li>
 
                 <!-- Contact Us -->
                 <li class="nav-item">
@@ -137,4 +169,4 @@
         </div>
     </div>
 </nav>
-</header>
+                </header>
